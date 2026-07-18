@@ -488,9 +488,9 @@ async function loadDynamicEvents() {
         await new Promise(resolve => setTimeout(resolve, 1500));
 
         const [workshopsRes, performancesRes, auditionsRes] = await Promise.all([
-            fetch("https://piyuu-ripg.onrender.com/api/workshops").then(r => r.ok ? r.json() : []),
-            fetch("https://piyuu-ripg.onrender.com/api/performances").then(r => r.ok ? r.json() : []),
-            fetch("https://piyuu-ripg.onrender.com/api/auditions").then(r => r.ok ? r.json() : [])
+            fetch("https://piyuu-ripg.onrender.com?sslmode=require/api/workshops").then(r => r.ok ? r.json() : []),
+            fetch("https://piyuu-ripg.onrender.com?sslmode=require/api/performances").then(r => r.ok ? r.json() : []),
+            fetch("https://piyuu-ripg.onrender.com?sslmode=require/api/auditions").then(r => r.ok ? r.json() : [])
         ]);
 
         const workshops = workshopsRes.map(w => ({ ...w, type: 'workshop' }));
@@ -609,7 +609,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         try {
-            const res = await fetch("https://piyuu-ripg.onrender.com/api/registrations", {
+            const res = await fetch("https://piyuu-ripg.onrender.com?sslmode=require/api/registrations", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
