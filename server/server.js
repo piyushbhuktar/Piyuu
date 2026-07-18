@@ -13,19 +13,6 @@ const galleryRoutes = require("./routes/galleryRoutes");
 
 const app = express();
 
-const { Pool } = require('pg');
-
-const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
-  // यह नीचे वाला हिस्सा जोड़ना बहुत ज़रूरी है 👇
-  ssl: {
-    rejectUnauthorized: false
-  }
-
 app.use(cors());
 app.use(express.json());
 
