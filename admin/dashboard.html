@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natyarang | Admin Dashboard</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <!-- Sidebar Overlay for mobile -->
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="header-logo-group">
+                <i class="fa-solid fa-masks-theater logo-icon"></i>
+                <div>
+                    <h3>NATYARANG</h3>
+                    <span>Admin Panel</span>
+                </div>
+            </div>
+            <button id="sidebarCloseBtn" class="sidebar-close-btn" title="Close Menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <nav class="sidebar-menu">
+            <button class="menu-item active" data-tab="overview">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Overview</span>
+            </button>
+            <button class="menu-item" data-tab="workshops">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Workshops</span>
+            </button>
+            <button class="menu-item" data-tab="performances">
+                <i class="fa-solid fa-clapperboard"></i>
+                <span>Performances</span>
+            </button>
+            <button class="menu-item" data-tab="auditions">
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Auditions</span>
+            </button>
+            <button class="menu-item" data-tab="registrations">
+                <i class="fa-solid fa-id-card"></i>
+                <span>Registrations</span>
+            </button>
+            <button class="menu-item" data-tab="gallery">
+                <i class="fa-solid fa-images"></i>
+                <span>Gallery Manager</span>
+            </button>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <i class="fa-solid fa-circle-user"></i>
+                <div>
+                    <h4 id="adminUsername">Admin</h4>
+                    <span>Active Session</span>
+                </div>
+            </div>
+            <button id="logoutBtn" class="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <header class="top-nav">
+            <div class="nav-left">
+                <button id="sidebarToggleBtn" class="mobile-toggle-btn" title="Open Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <h1 id="pageTitle">Dashboard Overview</h1>
+            </div>
+            <div class="nav-right">
+                <span id="currentDate">Date</span>
+            </div>
+        </header>
+
+        <div class="content-container">
+
+            <!-- 1. OVERVIEW TAB -->
+            <section id="tab-overview" class="tab-content active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon yellow">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="statWorkshopsCount">0</h3>
+                            <p>Total Workshops</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon gold">
+                            <i class="fa-solid fa-clapperboard"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="statPerformancesCount">0</h3>
+                            <p>Stage Performances</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange" style="background-color: rgba(255, 140, 0, 0.1); color: #FF8C00;">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="statAuditionsCount">0</h3>
+                            <p>Audition Calls</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue" style="background-color: rgba(30, 144, 255, 0.1); color: #1E90FF;">
+                            <i class="fa-solid fa-id-card"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="statRegistrationsCount">0</h3>
+                            <p>Registrations</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple" style="background-color: rgba(147, 112, 219, 0.1); color: #9370DB;">
+                            <i class="fa-solid fa-images"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="statGalleryCount">0</h3>
+                            <p>Gallery Media</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Active</h3>
+                            <p>Database Status</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-panel">
+                    <h2>Quick Management Shortcuts</h2>
+                    <div class="shortcut-buttons">
+                        <button onclick="switchTab('workshops')" class="shortcut-btn">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Create Workshop</span>
+                        </button>
+                        <button onclick="switchTab('performances')" class="shortcut-btn">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Create Performance</span>
+                        </button>
+                        <button onclick="switchTab('auditions')" class="shortcut-btn">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Create Audition</span>
+                        </button>
+                        <a href="../client/index.html" target="_blank" class="shortcut-btn outline">
+                            <i class="fa-solid fa-globe"></i>
+                            <span>View Live Site</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- 2. WORKSHOPS TAB -->
+            <section id="tab-workshops" class="tab-content">
+                <div class="management-grid">
+                    <!-- Form Card -->
+                    <div class="form-card">
+                        <h2 id="workshopFormTitle">Add Workshop</h2>
+                        <form id="workshopForm">
+                            <input type="hidden" id="workshopId">
+                            
+                            <div class="form-group">
+                                <label for="workshopTitle">Title</label>
+                                <input type="text" id="workshopTitle" placeholder="e.g. Summer Drama Camp" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="workshopDate">Date</label>
+                                <input type="date" id="workshopDate" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="workshopFile">Select Image</label>
+                                <input type="file" id="workshopFile" accept="image/*">
+                                <input type="hidden" id="workshopImageUrl">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="workshopDescription">Description</label>
+                                <textarea id="workshopDescription" rows="4" placeholder="Brief details about the event..." required></textarea>
+                            </div>
+
+                            <div class="button-row">
+                                <button type="submit" id="workshopSubmitBtn" class="action-btn">Add Workshop</button>
+                                <button type="button" id="workshopCancelBtn" class="action-btn outline hidden">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- List Card -->
+                    <div class="list-card">
+                        <h2>Workshop List</h2>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Title</th>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="workshopTableBody">
+                                    <!-- Dynamic rows loaded by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- 3. PERFORMANCES TAB -->
+            <section id="tab-performances" class="tab-content">
+                <div class="management-grid">
+                    <!-- Form Card -->
+                    <div class="form-card">
+                        <h2 id="performanceFormTitle">Add Performance</h2>
+                        <form id="performanceForm">
+                            <input type="hidden" id="performanceId">
+                            
+                            <div class="form-group">
+                                <label for="performanceTitle">Title</label>
+                                <input type="text" id="performanceTitle" placeholder="e.g. Shakespeare Night" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="performanceDate">Date</label>
+                                <input type="date" id="performanceDate" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="performanceFile">Select Image</label>
+                                <input type="file" id="performanceFile" accept="image/*">
+                                <input type="hidden" id="performanceImageUrl">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="performanceDescription">Description</label>
+                                <textarea id="performanceDescription" rows="4" placeholder="Brief details about the show..." required></textarea>
+                            </div>
+
+                            <div class="button-row">
+                                <button type="submit" id="performanceSubmitBtn" class="action-btn">Add Performance</button>
+                                <button type="button" id="performanceCancelBtn" class="action-btn outline hidden">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- List Card -->
+                    <div class="list-card">
+                        <h2>Performance List</h2>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Title</th>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="performanceTableBody">
+                                    <!-- Dynamic rows loaded by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. AUDITIONS TAB -->
+            <section id="tab-auditions" class="tab-content">
+                <div class="management-grid">
+                    <!-- Form Card -->
+                    <div class="form-card">
+                        <h2 id="auditionFormTitle">Add Audition Call</h2>
+                        <form id="auditionForm">
+                            <input type="hidden" id="auditionId">
+                            
+                            <div class="form-group">
+                                <label for="auditionTitle">Title</label>
+                                <input type="text" id="auditionTitle" placeholder="e.g. Audition for Macbeth" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="auditionDate">Audition Date / Deadline</label>
+                                <input type="date" id="auditionDate" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="auditionLocation">Location</label>
+                                <input type="text" id="auditionLocation" placeholder="e.g. Academy Main Hall" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="auditionImageUrl">Image URL</label>
+                                <input type="text" id="auditionImageUrl" placeholder="https://example.com/banner.jpg">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="auditionDescription">Description</label>
+                                <textarea id="auditionDescription" rows="4" placeholder="Audition instructions, required age, roles..." required></textarea>
+                            </div>
+
+                            <div class="button-row">
+                                <button type="submit" id="auditionSubmitBtn" class="action-btn">Add Audition</button>
+                                <button type="button" id="auditionCancelBtn" class="action-btn outline hidden">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- List Card -->
+                    <div class="list-card">
+                        <h2>Audition Calls List</h2>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Title</th>
+                                        <th>Date</th>
+                                        <th>Location</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="auditionTableBody">
+                                    <!-- Dynamic rows loaded by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. REGISTRATIONS TAB -->
+            <section id="tab-registrations" class="tab-content">
+                <div class="list-card" style="width: 100%;">
+                    <h2>Course Registrations List</h2>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Age</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>WhatsApp</th>
+                                    <th>Course</th>
+                                    <th>Experience</th>
+                                    <th>Submitted Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="registrationTableBody">
+                                <!-- Dynamic rows loaded by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. GALLERY TAB -->
+            <section id="tab-gallery" class="tab-content">
+                <div class="management-grid">
+                    <!-- Left: Form to Add/Upload Media -->
+                    <div class="form-card">
+                        <h2 id="galleryFormTitle">Add Media to Gallery</h2>
+                        <form id="galleryForm">
+                            <input type="hidden" id="galleryId">
+                            
+
+
+                            <div class="form-group">
+                                <label for="galleryFolder">Target Album/Folder</label>
+                                <select id="galleryFolder" required style="width: 100%; padding: 11px 14px; background-color: rgba(0,0,0,0.3); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); font-family: var(--font-body); font-size: 0.9rem; outline: none;">
+                                    <option value="achievements">Achievements</option>
+                                    <option value="performances">Performances</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="galleryMediaType">Media Type</label>
+                                <select id="galleryMediaType" required style="width: 100%; padding: 11px 14px; background-color: rgba(0,0,0,0.3); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); font-family: var(--font-body); font-size: 0.9rem; outline: none;">
+                                    <option value="image">Image</option>
+                                    <option value="video">Video</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="galleryUploadMethod">Source Method</label>
+                                <select id="galleryUploadMethod" style="width: 100%; padding: 11px 14px; background-color: rgba(0,0,0,0.3); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); font-family: var(--font-body); font-size: 0.9rem; outline: none;">
+                                    <option value="file">Upload Local File</option>
+                                    <option value="url">Direct Web URL Link</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" id="galleryFileGroup">
+                                <label for="galleryFile">Choose Media File</label>
+                                <input type="file" id="galleryFile" accept="image/*,video/*" style="padding: 8px 10px;">
+                            </div>
+
+                            <div class="form-group hidden" id="galleryUrlGroup">
+                                <label for="galleryUrl">Media URL Link</label>
+                                <input type="url" id="galleryUrl" placeholder="https://example.com/image.jpg">
+                            </div>
+
+                            <div class="button-row">
+                                <button type="submit" id="gallerySubmitBtn" class="action-btn">Add to Gallery</button>
+                                <button type="button" id="galleryCancelBtn" class="action-btn outline hidden">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Right: Table of Current Media -->
+                    <div class="list-card">
+                        <h2>Gallery Media Items</h2>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Preview</th>
+                                        <th>Album/Folder</th>
+                                        <th>Type</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="galleryTableBody">
+                                    <!-- Loaded dynamically by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Script file -->
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

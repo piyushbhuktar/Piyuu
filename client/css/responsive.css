@@ -1,0 +1,289 @@
+/* =========================================
+   RESPONSIVE CSS
+   NATYARANG JALGAON
+========================================= */
+
+/* ---------- Laptop ---------- */
+
+@media(max-width:1200px){
+
+header{
+padding:18px 5%;
+}
+
+section{
+padding-left:5%;
+padding-right:5%;
+}
+
+.hero-content h1{
+font-size:75px;
+}
+
+.hero-content h2{
+font-size:45px;
+}
+
+.course-box{
+grid-template-columns:repeat(2,1fr);
+}
+
+.gallery-container{
+grid-template-columns:repeat(2,1fr);
+}
+
+.counter{
+grid-template-columns:repeat(2,1fr);
+}
+
+.event-wrapper{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+
+/* ---------- Tablet ---------- */
+
+@media(max-width:991px){
+
+header{
+padding:18px 30px;
+}
+
+.menu{
+display:block;
+font-size:30px;
+}
+
+nav{
+position:fixed;
+top:80px;
+right:-100%;
+width:280px;
+height:100vh;
+background:#111;
+transition:.5s;
+padding:40px;
+}
+
+nav.active{
+right:0;
+}
+
+nav ul{
+display:flex;
+flex-direction:column;
+gap:25px;
+}
+
+.container{
+grid-template-columns:1fr;
+}
+
+.founder{
+grid-template-columns:1fr;
+}
+
+.contact-container{
+grid-template-columns:1fr;
+}
+
+.hero-content h1{
+font-size:65px;
+}
+
+.hero-content h2{
+font-size:35px;
+}
+
+.right h2{
+font-size:42px;
+}
+
+#courses h2,
+.section-title h2{
+font-size:40px;
+}
+
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:768px){
+
+.hero-content h3{
+font-size:18px;
+}
+
+.hero-content h1{
+font-size:48px;
+}
+
+.hero-content h2{
+font-size:24px;
+letter-spacing:3px;
+}
+
+.hero-content p{
+font-size:16px;
+padding:0 15px;
+}
+
+.buttons{
+flex-direction:column;
+align-items:center;
+}
+
+.btn1,
+.btn2{
+width:220px;
+text-align:center;
+}
+
+.course-box{
+grid-template-columns:1fr;
+}
+
+.gallery-container{
+grid-template-columns:1fr;
+}
+
+.counter{
+grid-template-columns:1fr;
+}
+
+.event-wrapper{
+grid-template-columns:1fr;
+}
+
+.testimonial-slider{
+grid-template-columns:1fr;
+}
+
+.logo h2{
+font-size:22px;
+}
+
+.logo span{
+font-size:11px;
+letter-spacing:2px;
+}
+
+.right h2{
+font-size:34px;
+}
+
+.section-title h2{
+font-size:34px;
+}
+
+.contact-info h3{
+font-size:30px;
+}
+
+footer h2{
+font-size:28px;
+}
+
+}
+
+
+/* ---------- Small Mobile ---------- */
+
+@media(max-width:480px){
+
+header{
+padding:15px 20px;
+}
+
+.hero-content h1{
+font-size:38px;
+}
+
+.hero-content h2{
+font-size:20px;
+}
+
+.hero-content p{
+font-size:14px;
+}
+
+.right h2{
+font-size:28px;
+}
+
+.section-title h2{
+font-size:28px;
+}
+
+.card{
+padding:35px 20px;
+}
+
+.review{
+padding:30px 20px;
+}
+
+.event-card{
+padding:30px 20px;
+}
+
+.counter-box h2{
+font-size:42px;
+}
+
+.counter-box p{
+font-size:14px;
+}
+
+form input,
+form textarea{
+font-size:15px;
+padding:15px;
+}
+
+form button{
+padding:15px;
+font-size:16px;
+}
+
+.footer-social{
+gap:12px;
+}
+
+.footer-social a{
+width:42px;
+height:42px;
+}
+
+.scroll{
+display:none;
+}
+
+}
+
+
+/* ---------- Large TV ---------- */
+
+@media(min-width:1600px){
+
+.hero-content h1{
+font-size:120px;
+}
+
+.hero-content h2{
+font-size:70px;
+}
+
+.hero-content p{
+font-size:24px;
+}
+
+section{
+padding-left:10%;
+padding-right:10%;
+}
+
+}
