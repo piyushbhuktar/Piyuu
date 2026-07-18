@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/gallery";
+const API_URL = "https://piyuu-ripg.onrender.com/api/gallery";
 
 let allGalleryItems = [];
 let currentFolderItems = [];
