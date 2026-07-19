@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         try {
-            const response = await fetch("https://piyuu-ripg.onrender.com?sslmode=require/api/login", {
+            const response = await fetch("https://piyuu-ripg.onrender.com/api/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
