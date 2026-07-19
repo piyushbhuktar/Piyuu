@@ -1,5 +1,5 @@
 // API Base URL
-const BASE_URL = "https://piyuu-ripg.onrender.com?sslmode=require/api";
+const BASE_URL = "https://piyuu-ripg.onrender.com/api";
 
 // State variables
 let editingWorkshop = false;
